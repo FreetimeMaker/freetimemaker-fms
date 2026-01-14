@@ -1,30 +1,13 @@
-const { app, BrowserWindow, Notification } = require('electron');
-const { autoUpdater } = require('electron-updater');
+const { app, BrowserWindow, Notification, Menu } = require('electron');
+const { autoUpdater } = require("electron-updater"); 
 
-function sendNotification(title, body) {
-  new Notification({ title, body }).show();
-}
-
-function setupAutoUpdater() {
-  autoUpdater.checkForUpdatesAndNotify()
-    .then(() => {
-      sendNotification('Updater', 'Checking for updates…');
-
-      autoUpdater.on('update-downloaded', () => {
-        sendNotification('Updater', 'Update downloaded. Installing…');
-        autoUpdater.quitAndInstall();
-      });
-    })
-    .catch(err => {
-      sendNotification('Updater Error', String(err));
-    });
-}
+autoUpdater.checkForUpdatesAndNotify();
 
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: __dirname + '/icon/icon.png'
+    icon: __dirname + 'images/icon.png'
   });
 
   win.loadFile('index.html');
@@ -33,7 +16,6 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow();
   Menu.setApplicationMenu(null);   // Menü komplett entfernen
-  setupAutoUpdater();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

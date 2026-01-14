@@ -4,7 +4,7 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon: '/icon/'
+    icon: 'images/'
   },
   
   rebuildConfig: {},
@@ -12,14 +12,14 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        setupIcon: '/icon/icon.ico'
+        setupIcon: 'images/icon.ico'
       },
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
         options: {
-          icon: '/icon/icon.png'
+          icon: 'images/icon.png'
         },
       },
     },
@@ -27,27 +27,7 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {
         options: {
-          icon: '/icon/icon.png'
-        },
-      },
-    },
-    {
-      name: '@electron-forge/maker-snap',
-      config: {
-        features: {
-          audio: true,
-          mpris: 'com.freetimemaker.fms',
-          webgl: true,
-        },
-        summary: 'The Official Freetime Maker Shop Desktop App from Freetime Maker.'
-      },
-    },
-    {
-      name: '@electron-forge/maker-flatpak',
-      config: {
-        options: {
-          categories: ['Internet'],
-          mimeType: ['application/x-executable']
+          icon: 'images/icon.png'
         },
       },
     },
@@ -56,7 +36,7 @@ module.exports = {
       config: {
         language: 1033,
         manufacturer: 'Freetime Maker',
-        icon: '/icon/icon.ico'
+        icon: 'images/icon.ico'
       },
     },
   ],
