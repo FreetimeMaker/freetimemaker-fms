@@ -1,19 +1,17 @@
 {
   "name": "freetimemaker-fms",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "The Official Freetime Maker Shop Desktop App from Freetime Maker.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --linux --publish always"
+    "dist": "electron-builder --linux"
   },
   "build": {
     "appId": "com.freetime.fms",
     "linux": {
       "target": [
-        "snap",
-        "deb",
-        "rpm"
+        "snap"
       ],
       "icon": "icon"
     }
